@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.newsist"
+        testApplicationId "com.test"
+        testInstrumentationRunner "com.test.Instrumentation"
+
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    sourceSets {
+        androidTest {
+            assets.srcDirs = ['src/androidTest/assets']
+        }
+        main { assets.srcDirs = ['src/main/assets', 'src/androidTest/assets/'] }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:design:29.0.2'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestCompile 'com.android.support:support-annotations:26.1.0'
+    androidTestCompile 'info.cukes:cucumber-android:1.2.5@jar'
+    androidTestCompile 'info.cukes:cucumber-picocontainer:1.2.4'
+
+//    implementation 'com.google.firebase:firebase-auth:10.2.6'
+//    implementation 'com.google.firebase:firebase-database:10.2.6'
+//    implementation 'com.google.firebase:firebase-storage:10.2.6'
+
+    implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
+
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
+    implementation 'com.github.eschao:android-ElasticListView:v1.0'
+    //material dialogs
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
+
+
+    //firebase authentication
+    implementation 'com.google.firebase:firebase-auth:10.2.6'
+    //firebase database
+    implementation 'com.google.firebase:firebase-database:10.2.6'
+    //firebase storage
+    implementation 'com.google.firebase:firebase-storage:10.2.6'
+
+}
+
+apply plugin: 'com.google.gms.google-services'
